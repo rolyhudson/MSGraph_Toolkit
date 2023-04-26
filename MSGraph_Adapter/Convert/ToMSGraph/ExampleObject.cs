@@ -20,30 +20,29 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Adapter;
+using BH.oM.Adapters.MSGraph;
+using BH.oM.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BH.Adapter.SoftwareName
+namespace BH.Adapter.MSGraph
 {
-    public partial class SoftwareNameAdapter : BHoMAdapter
+    public static partial class Convert
     {
-        // Basic Delete method that deletes objects depending on their Type and Id. 
-        // It gets called by the Push or by the Remove Adapter Actions.
-        // Its implementation is facultative (not needed for a simple export/import scenario). 
-        // Toolkits need to implement (override) this only to get the full CRUD to work.
-        protected override int IDelete(Type type, IEnumerable<object> ids, ActionConfig actionConfig = null)
-        {
-            //Insert code here to enable deletion of specific types of objects with specific ids
-            BH.Engine.Base.Compute.RecordError($"Delete for objects of type {type.Name} is not implemented in {(this as dynamic).GetType().Name}.");
-            return 0;
-        }
+        /***************************************************/
+        /**** Public Methods                            ****/
+        /***************************************************/
 
-        // There are more virtual Delete methods you might want to override and implement.
-        // Check the base BHoM_Adapter solution and the wiki for more info.
+        // Add methods for converting from BHoM to the specific software types
+        // Example:
+        public static ExampleObject ToMSGraph(this BHoMObject node)
+        {
+            //Insert code for convertion
+            throw new NotImplementedException();
+        }
 
         /***************************************************/
     }

@@ -20,7 +20,7 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Adapters.SoftwareName;
+using BH.oM.Adapters.MSGraph;
 using BH.oM.Base;
 using BH.oM.Base.Attributes;
 using System;
@@ -28,7 +28,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 
-namespace BH.Engine.Adapters.SoftwareName
+namespace BH.Engine.Adapters.MSGraph
 {
     public static partial class Query
     {

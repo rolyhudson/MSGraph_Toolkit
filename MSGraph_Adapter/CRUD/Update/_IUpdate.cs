@@ -27,9 +27,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BH.Adapter.SoftwareName
+namespace BH.Adapter.MSGraph
 {
-    public partial class SoftwareNameAdapter : BHoMAdapter
+    public partial class MSGraphAdapter : BHoMAdapter
     {
         // This method gets called when appropriate by the Push method contained in the base Adapter class.
         // Unlike the Create, Delete and Read, this method already exposes a simple implementation: it calls Delete and then Create.
