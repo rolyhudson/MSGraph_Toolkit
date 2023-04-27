@@ -1,6 +1,6 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2023, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2022, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -19,30 +19,27 @@
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
-
-using BH.oM.Base;
-using BH.oM.Base.Attributes;
+using BH.oM.Adapter;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace BH.oM.Adapters.MSGraph
 {
-    [Description("Object description in here. Will appear in the UI tooltip.")]
-    public class ExampleObject : BHoMObject
+    [Description("Define configuration settings for pulling MSGraph data using the MSGraph Adapter")]
+    public class MSGraphConfig : ActionConfig
     {
-        // // See examples in the BHoM repo and the wiki to see how we define types.
-        // // Generally, all properties should be public and have public getter and setter.
-        // // BHoM Objects should have orthogonal properties and no behaviour (no methods), as in C# Records (or Python Dataclasses).
-        // // No constructor should be specified. If a specific instantiaton method is needed, we make it as an "Engine/Create" method.
-        // // Objects created with this convention will automatically appear as UI components (e.g. Grasshopper component).
+        [Description("Endpoint for MSGraph queries. ")]
+        public virtual string GraphEndpoint { get; set; } = "https://graph.microsoft.com/v1.0/users";
 
-        [Description("Property description in here.")]
-        public string SomeStringProperty { get; set; }
+        [Description("the content of ClientID with the Application Id for your app registration.")]
+        public virtual string ClientId { get; set; } = "";
 
-        [Description("Property description in here.")]
-        public int SomeNumberProperty { get; set; }
+        [Description("The content of Tenant by the information about the accounts allowed to sign-in in your application.")]
+        public virtual string Tenant { get; set; } = "";
+        public virtual string Instance { get; set; } = "https://login.microsoftonline.com/";
     }
 }
-

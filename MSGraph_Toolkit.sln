@@ -1,13 +1,14 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.32901.82
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MSGraph_Adapter", "MSGraph_Adapter\MSGraph_Adapter.csproj", "{F84BEFC2-C702-4A86-9626-C7FA48785606}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSGraph_Engine", "MSGraph_Engine\MSGraph_Engine.csproj", "{C68B4D77-E46D-41C9-A72C-F29984D8AB4A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MSGraph_Engine", "MSGraph_Engine\MSGraph_Engine.csproj", "{C68B4D77-E46D-41C9-A72C-F29984D8AB4A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSGraph_oM", "MSGraph_oM\MSGraph_oM.csproj", "{FA23407E-1C08-4183-A02E-A57FA9D09BCA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MSGraph_oM", "MSGraph_oM\MSGraph_oM.csproj", "{FA23407E-1C08-4183-A02E-A57FA9D09BCA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSGraph_Auth", "MSGraph_Auth\MSGraph_Auth.csproj", "{4365478C-F1F8-4A3F-9F28-2B20609DD574}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +28,10 @@ Global
 		{FA23407E-1C08-4183-A02E-A57FA9D09BCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA23407E-1C08-4183-A02E-A57FA9D09BCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA23407E-1C08-4183-A02E-A57FA9D09BCA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4365478C-F1F8-4A3F-9F28-2B20609DD574}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4365478C-F1F8-4A3F-9F28-2B20609DD574}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4365478C-F1F8-4A3F-9F28-2B20609DD574}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4365478C-F1F8-4A3F-9F28-2B20609DD574}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

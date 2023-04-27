@@ -8,8 +8,8 @@
     <Description>https://github.com/BHoM/MSGraph_Toolkit</Description>
     <Version>5.0.0</Version>
     <Authors>BHoM</Authors>
-    <Copyright>Copyright © https://github.com/BHoM</Copyright>
-    <RootNamespace>BH.Adapter.MSGraph</RootNamespace>
+    <Copyright>Copyright ï¿½ https://github.com/BHoM</Copyright>
+    <RootNamespace>BH.Adapters.MSGraph</RootNamespace>
     <FileVersion>6.1.0.0</FileVersion>
 	<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
   </PropertyGroup>
@@ -19,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MSGraph_Auth\MSGraph_Auth.csproj" />
     <ProjectReference Include="..\MSGraph_Engine\MSGraph_Engine.csproj" />
     <ProjectReference Include="..\MSGraph_oM\MSGraph_oM.csproj" />
   </ItemGroup>
@@ -49,6 +50,23 @@
       <Private>false</Private>
       <SpecificVersion>false</SpecificVersion>
     </Reference>
+    <Reference Include="Data_oM">
+      <HintPath>C:\ProgramData\BHoM\Assemblies\Data_oM.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore">
+      <HintPath>..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\PresentationCore.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework">
+      <HintPath>..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\PresentationFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase">
+      <HintPath>..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\WindowsBase.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Convert\FromMSGraph\" />
+    <Folder Include="Convert\ToMSGraph\" />
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">

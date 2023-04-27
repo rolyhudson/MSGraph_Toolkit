@@ -1,0 +1,13 @@
+﻿<Window x:Class="MSGraph_Auth.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MSGraph_Auth"
+        mc:Ignorable="d"
+        Title="Authenticate" Height="200" Width="200">
+    <Grid>
+        <Button Content="Authenticate" HorizontalAlignment="Center" Margin="0,49,0,0" VerticalAlignment="Top" Height="77" Width="120" Click="Button_Click"/>
+
+    </Grid>
+</Window>

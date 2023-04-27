@@ -1,6 +1,6 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2023, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2022, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -19,32 +19,38 @@
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
-
+using BH.Engine.Adapters.MSGraph;
+using BH.oM.Adapter;
 using BH.oM.Adapters.MSGraph;
-using BH.oM.Base;
+using BH.oM.Data.Requests;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace BH.Adapter.MSGraph
 {
-    public static partial class Convert
+    public partial class MSGraphAdapter
     {
         /***************************************************/
         /**** Public Methods                            ****/
         /***************************************************/
 
-        // Add methods for converting to BHoM from the specific software types. 
-        // Example:
-        public static BHoMObject FromMSGraph(this ExampleObject node)
+        public override IEnumerable<object> Pull(IRequest request, PullType pullType = PullType.AdapterDefault, ActionConfig actionConfig = null)
         {
-            //Insert code for convertion
-            throw new NotImplementedException();
+            if (!(actionConfig is MSGraphConfig))
+                actionConfig = new MSGraphConfig();
+
+            return new List<object> { };
+            //Engine.Base.Compute.RecordError("This type of request is not supported.");
+            //return new List<object>();
         }
 
         /***************************************************/
+
+       
+
     }
 }
-
