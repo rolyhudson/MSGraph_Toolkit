@@ -5,9 +5,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MSGraph_Auth"
         mc:Ignorable="d"
-        Title="Authenticate" Height="200" Width="200">
-    <Grid>
-        <Button Content="Authenticate" HorizontalAlignment="Center" Margin="0,49,0,0" VerticalAlignment="Top" Height="77" Width="120" Click="Button_Click"/>
-
-    </Grid>
+        Title="Authentication" Height="200" Width="400">
+    <Grid/>
 </Window>

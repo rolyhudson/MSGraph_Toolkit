@@ -15,7 +15,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="7.0.0" />
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
   <ItemGroup>
@@ -53,6 +55,12 @@
     <Reference Include="Data_oM">
       <HintPath>C:\ProgramData\BHoM\Assemblies\Data_oM.dll</HintPath>
     </Reference>
+    <Reference Include="HTTP_Adapter">
+      <HintPath>..\..\..\ProgramData\BHoM\Assemblies\HTTP_Adapter.dll</HintPath>
+    </Reference>
+    <Reference Include="HTTP_oM">
+      <HintPath>..\..\..\ProgramData\BHoM\Assemblies\HTTP_oM.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore">
       <HintPath>..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\PresentationCore.dll</HintPath>
     </Reference>
@@ -65,7 +73,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Convert\FromMSGraph\" />
     <Folder Include="Convert\ToMSGraph\" />
   </ItemGroup>
 

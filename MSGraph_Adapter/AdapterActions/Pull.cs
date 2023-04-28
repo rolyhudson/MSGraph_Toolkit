@@ -20,14 +20,22 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 using BH.Engine.Adapters.MSGraph;
+using BH.Engine.Base;
 using BH.oM.Adapter;
+using BH.oM.Adapter.Commands;
 using BH.oM.Adapters.MSGraph;
+using BH.oM.Base;
 using BH.oM.Data.Requests;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace BH.Adapter.MSGraph
@@ -40,17 +48,24 @@ namespace BH.Adapter.MSGraph
 
         public override IEnumerable<object> Pull(IRequest request, PullType pullType = PullType.AdapterDefault, ActionConfig actionConfig = null)
         {
-            if (!(actionConfig is MSGraphConfig))
-                actionConfig = new MSGraphConfig();
 
-            return new List<object> { };
-            //Engine.Base.Compute.RecordError("This type of request is not supported.");
-            //return new List<object>();
+            if (request is IMSGraphRequest)
+            {
+                m_Results = new List<object>();
+                m_ReadComplete = false;
+                Read(request as dynamic);
+                return new List<object>();
+            }
+
+            Engine.Base.Compute.RecordError("This type of request is not supported. Use BH.oM.HTTP.GetRequest");
+            return new List<object>();
         }
 
         /***************************************************/
 
-       
+        private static List<object> m_Results = new List<object>();
+
+        private static bool m_ReadComplete = false;
 
     }
 }

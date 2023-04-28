@@ -26,11 +26,26 @@ using System;
 using System.ComponentModel;
 using BH.oM.Adapters.MSGraph;
 using MSGraph_Auth;
+using BH.Adapter.HTTP;
+using BH.oM.Base;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
+using BH.oM.Adapter.Commands;
+using System.Threading;
 
 namespace BH.Adapter.MSGraph
 {
     public partial class MSGraphAdapter : BHoMAdapter
     {
+        /***************************************************/
+        /****             Public Properties             ****/
+        /***************************************************/
+
+        public static string Token { get; set; } = string.Empty;
+
+        public MSGraphSettings Settings { get; set; } = new MSGraphSettings();
+
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
@@ -41,15 +56,35 @@ namespace BH.Adapter.MSGraph
         {
             if (graphSettings == null)
                 return;
-                App.CreateApplication();
-                MainWindow mainWindow = new MainWindow();
-                mainWindow.Show();
+            Settings = graphSettings;
+            
+            App.CreateApplication(graphSettings.ClientId, graphSettings.Tenant, graphSettings.Instance);
             if (!active )
                 return;
-            //Authenticate(graphSettings);
+            //authenticate TODO check logic here sign out needed etc?
+            Authenticate(graphSettings.SignInMethod);
         }
         //TODO dll and runtimes to BHoM Assemblies folder on build
+        private async void Authenticate(SignInMethod signInMethod)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            Token = await mainWindow.Authenticate((int)signInMethod - 1);
+            if (string.IsNullOrEmpty(Token))
+                //ADD BHoM record error
+                return;
+            mainWindow.Close();
 
+            
+        }
+
+        /***************************************************/
+        /**** Private Fields                            ****/
+        /***************************************************/
+
+        
+
+        /***************************************************/
     }
 }
 

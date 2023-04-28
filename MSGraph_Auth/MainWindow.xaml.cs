@@ -15,25 +15,38 @@ namespace MSGraph_Auth
     /// </summary>
     public partial class MainWindow : Window
     {
-        string graphAPIEndpoint = "https://graph.microsoft.com/v1.0/users";
 
-        //Set the scope for API call to user.read
-        string[] scopes = new string[] { "user.read" };
+        
+        /***************************************************/
+        /**** Public  Fields                            ****/
+        /***************************************************/
+
+        public string Token = string.Empty;
+
+        public string Error = string.Empty;
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        private async void Button_Click(object sender, RoutedEventArgs e)
+        /***************************************************/
+        /**** Private  Methods                          ****/
+        /***************************************************/
+        public async Task<string> Authenticate(int signInMethod)
         {
             AuthenticationResult authResult = null;
+            string[] scopes = new string[] { "user.read" };
             var app = App.PublicClientApp;
             //ResultText.Text = string.Empty;
             //TokenInfoText.Text = string.Empty;
 
             IAccount firstAccount;
 
-            switch (2)
+            switch (signInMethod)
             {
                 // 0: Use account used to signed-in in Windows (WAM)
                 case 0:
@@ -71,19 +84,19 @@ namespace MSGraph_Auth
                 {
                     authResult = await app.AcquireTokenInteractive(scopes)
                         .WithAccount(firstAccount)
-                        .WithParentActivityOrWindow(new WindowInteropHelper(this).Handle) // optional, used to center the browser on the window
+                        .WithParentActivityOrWindow(new WindowInteropHelper(this).Handle)
                         .WithPrompt(Prompt.SelectAccount)
                         .ExecuteAsync();
                 }
                 catch (MsalException msalex)
                 {
-                    //ResultText.Text = $"Error Acquiring Token:{System.Environment.NewLine}{msalex}";
+                    Error = $"Error Acquiring Token:{System.Environment.NewLine}{msalex}";
                 }
             }
             catch (Exception ex)
             {
-                //ResultText.Text = $"Error Acquiring Token Silently:{System.Environment.NewLine}{ex}";
-                return;
+                Error = $"Error Acquiring Token Silently:{System.Environment.NewLine}{ex}";
+                return string.Empty;
             }
 
             if (authResult != null)
@@ -91,7 +104,10 @@ namespace MSGraph_Auth
                 //ResultText.Text = await GetHttpContentWithToken(graphAPIEndpoint, authResult.AccessToken);
                 //DisplayBasicTokenInfo(authResult);
                 //this.SignOutButton.Visibility = Visibility.Visible;
+                Token = authResult.AccessToken;
+                return authResult.AccessToken;
             }
+            return string.Empty;
         }
     }
 }

@@ -16,5 +16,7 @@ namespace BH.oM.Adapters.MSGraph
         public virtual string Instance { get; set; } = "https://login.microsoftonline.com/";
 
         public virtual SignInMethod SignInMethod { get; set; } = SignInMethod.AnyAccount;
+
+        public virtual string CacheFolder { get; set; }
     }
 }
