@@ -23,6 +23,7 @@ using BH.Engine.Adapters.MSGraph;
 using BH.Engine.Base;
 using BH.oM.Adapter;
 using BH.oM.Adapter.Commands;
+using BH.oM.Adapters.HTTP;
 using BH.oM.Adapters.MSGraph;
 using BH.oM.Base;
 using BH.oM.Data.Requests;
@@ -48,24 +49,48 @@ namespace BH.Adapter.MSGraph
 
         public override IEnumerable<object> Pull(IRequest request, PullType pullType = PullType.AdapterDefault, ActionConfig actionConfig = null)
         {
-
-            if (request is IMSGraphRequest)
+            m_Results = new List<object>();
+            if (request is GetRequest)
             {
-                m_Results = new List<object>();
-                m_ReadComplete = false;
-                Read(request as dynamic);
-                return new List<object>();
+                Read(request as  GetRequest, Settings.Paginate);
+                return m_Results;
             }
-
-            Engine.Base.Compute.RecordError("This type of request is not supported. Use BH.oM.HTTP.GetRequest");
+            Engine.Base.Compute.RecordError("This type of request is not supported. Use HTTP.GetRequest");
             return new List<object>();
         }
 
-        /***************************************************/
-
         private static List<object> m_Results = new List<object>();
-
-        private static bool m_ReadComplete = false;
-
     }
 }
+
+//namespace BH.Adapter.MSGraph
+//{
+//    public partial class MSGraphAdapter
+//    {
+//        /***************************************************/
+//        /**** Public Methods                            ****/
+//        /***************************************************/
+
+//        public override IEnumerable<object> Pull(IRequest request, PullType pullType = PullType.AdapterDefault, ActionConfig actionConfig = null)
+//        {
+
+//            if (request is IMSGraphRequest)
+//            {
+//                m_Results = new List<object>();
+//                m_ReadComplete = false;
+//                IRead(request as IMSGraphRequest);
+//                return new List<object>();
+//            }
+
+//            Engine.Base.Compute.RecordError("This type of request is not supported. Use BH.oM.HTTP.GetRequest");
+//            return new List<object>();
+//        }
+
+//        /***************************************************/
+
+//        
+
+//        private static bool m_ReadComplete = false;
+
+//    }
+//}

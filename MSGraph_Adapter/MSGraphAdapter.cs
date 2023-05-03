@@ -61,6 +61,8 @@ namespace BH.Adapter.MSGraph
             App.CreateApplication(graphSettings.ClientId, graphSettings.Tenant, graphSettings.Instance);
             if (!active )
                 return;
+            if (Token != string.Empty)
+                return;
             //authenticate TODO check logic here sign out needed etc?
             Authenticate(graphSettings.SignInMethod);
         }

@@ -67,6 +67,9 @@
     <Reference Include="PresentationFramework">
       <HintPath>..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\PresentationFramework.dll</HintPath>
     </Reference>
+    <Reference Include="Serialiser_Engine">
+      <HintPath>..\..\..\ProgramData\BHoM\Assemblies\Serialiser_Engine.dll</HintPath>
+    </Reference>
     <Reference Include="WindowsBase">
       <HintPath>..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\WindowsBase.dll</HintPath>
     </Reference>

@@ -25,6 +25,9 @@
     <Reference Include="Data_oM">
       <HintPath>..\..\..\ProgramData\BHoM\Assemblies\Data_oM.dll</HintPath>
     </Reference>
+    <Reference Include="HTTP_oM">
+      <HintPath>..\..\..\ProgramData\BHoM\Assemblies\HTTP_oM.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">

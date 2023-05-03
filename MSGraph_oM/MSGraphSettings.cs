@@ -18,5 +18,7 @@ namespace BH.oM.Adapters.MSGraph
         public virtual SignInMethod SignInMethod { get; set; } = SignInMethod.AnyAccount;
 
         public virtual string CacheFolder { get; set; }
+
+        public virtual bool Paginate { get; set; }
     }
 }
