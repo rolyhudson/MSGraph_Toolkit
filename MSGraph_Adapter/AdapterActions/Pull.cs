@@ -35,6 +35,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -52,11 +53,42 @@ namespace BH.Adapter.MSGraph
             m_Results = new List<object>();
             if (request is GetRequest)
             {
-                Read(request as  GetRequest, Settings.Paginate);
+                Read(request as GetRequest, Settings.Paginate);
                 return m_Results;
             }
+            else if (request is BatchRequest)
+                return Pull(request as BatchRequest);
             Engine.Base.Compute.RecordError("This type of request is not supported. Use HTTP.GetRequest");
             return new List<object>();
+        }
+
+
+        public IEnumerable<object> Pull(BatchRequest requests)
+        {
+            string[] response = new string[requests.Requests.Count];
+            List<BHoMObject> result = new List<BHoMObject>();
+            using (HttpClient client = new HttpClient() { Timeout = TimeSpan.FromSeconds(Settings.TimeOut) })
+            {
+                List<GetRequest> getRequests = requests.Requests.OfType<GetRequest>().ToList();
+                response = Task.WhenAll(getRequests.Select(x => BH.Engine.Adapters.MSGraph.Compute.GetRequestAsync(x, client, Token))).GetAwaiter().GetResult();
+                client.CancelPendingRequests();
+                client.Dispose();
+            }
+                
+            Parallel.ForEach(response, res =>
+            {
+                if (res == null)
+                    return;
+                BHoMObject obj = Engine.Serialiser.Convert.FromJson(res) as BHoMObject;
+                if (obj == null)
+                {
+                    Engine.Base.Compute.RecordNote($"{res.GetType()} failed to deserialise to a BHoMObject and is set to null." +
+                        $"Perform a request with Compute.GetRequest(string url) if you want the raw output");
+                    return; // return is equivalent to `continue` in a Parallel.ForEach
+                }
+                result.Add(obj);
+            });
+            return result;
         }
 
         private static List<object> m_Results = new List<object>();

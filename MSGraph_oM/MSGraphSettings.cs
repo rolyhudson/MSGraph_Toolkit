@@ -20,5 +20,7 @@ namespace BH.oM.Adapters.MSGraph
         public virtual string CacheFolder { get; set; }
 
         public virtual bool Paginate { get; set; }
+
+        public virtual int TimeOut { get; set; } = 500;
     }
 }

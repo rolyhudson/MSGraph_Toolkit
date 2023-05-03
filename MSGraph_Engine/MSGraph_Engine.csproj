@@ -26,6 +26,9 @@
     <Reference Include="BHoM_Engine">
       <HintPath>..\..\..\ProgramData\BHoM\Assemblies\BHoM_Engine.dll</HintPath>
     </Reference>
+    <Reference Include="Data_oM">
+      <HintPath>..\..\..\ProgramData\BHoM\Assemblies\Data_oM.dll</HintPath>
+    </Reference>
     <Reference Include="HTTP_oM">
       <HintPath>..\..\..\ProgramData\BHoM\Assemblies\HTTP_oM.dll</HintPath>
     </Reference>
@@ -35,6 +38,10 @@
     <Folder Include="Create\" />
     <Folder Include="Modify\" />
     <Folder Include="Query\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">

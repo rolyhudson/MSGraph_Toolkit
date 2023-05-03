@@ -62,6 +62,11 @@ namespace BH.Adapter.MSGraph
             else
                 return new List<object>() { response };
         }
+
+        /***************************************************/
+
+       
+
         //private async Task<string> GetHttpContent(string url, string token)
         //{
         //    var httpClient = new System.Net.Http.HttpClient();
