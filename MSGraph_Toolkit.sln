@@ -10,6 +10,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MSGraph_oM", "MSGraph_oM\MS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSGraph_Auth", "MSGraph_Auth\MSGraph_Auth.csproj", "{4365478C-F1F8-4A3F-9F28-2B20609DD574}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RDF_App", "RDF_App\RDF_App.csproj", "{48F5D684-B5BF-4DA0-A5F7-C2364443A766}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,6 +34,10 @@ Global
 		{4365478C-F1F8-4A3F-9F28-2B20609DD574}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4365478C-F1F8-4A3F-9F28-2B20609DD574}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4365478C-F1F8-4A3F-9F28-2B20609DD574}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48F5D684-B5BF-4DA0-A5F7-C2364443A766}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48F5D684-B5BF-4DA0-A5F7-C2364443A766}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48F5D684-B5BF-4DA0-A5F7-C2364443A766}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48F5D684-B5BF-4DA0-A5F7-C2364443A766}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
