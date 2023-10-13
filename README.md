@@ -13,7 +13,7 @@ Queries are dependent on an app registered via Azure Active Directory and grante
 Current usage is based on Future-Test-GraphAPI. 
 
 Current permissions shown below additional permissions would require contact with Cloud Services and Information Technology
-![permission](permissions.JPG)
+![permission](permissions.jpg)
 
 MSGraphAdapter checks for is there is a current token.
 
