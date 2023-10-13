@@ -6,7 +6,7 @@ Authentication runs using ``Microsoft.Identity.Client`` leveraging profiles of c
 
 Queries of the Graph give access to a range of enterprise level information including SharePoint, and MS Graph as demonstrated here.
 
-Microsoft Graph REST API beta is documented [her]https://learn.microsoft.com/en-us/graph/api/overview?view=graph-rest-beta&preserve-view=true)
+Microsoft Graph REST API beta is documented [here](https://learn.microsoft.com/en-us/graph/api/overview?view=graph-rest-beta&preserve-view=true)
 
 Queries are dependent on an app registered via Azure Active Directory and granted certain access permissions to specific end points. 
 
