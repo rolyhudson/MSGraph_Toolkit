@@ -52,15 +52,19 @@ namespace BH.Adapter.MSGraph
 
         [Description("Adapter for MSGraph.")]
         [Output("The created MSGraph adapter.")]
-        public MSGraphAdapter(MSGraphSettings graphSettings , bool active = false)
+        public MSGraphAdapter(MSGraphSettings graphSettings , bool active = false, bool resetToken = false)
         {
             if (graphSettings == null)
                 return;
             Settings = graphSettings;
-            
+
             App.CreateApplication(graphSettings.ClientId, graphSettings.Tenant, graphSettings.Instance);
             if (!active )
                 return;
+
+            if (resetToken)
+                Token = string.Empty;
+
             if (Token != string.Empty)
                 return;
             //authenticate TODO check logic here sign out needed etc?

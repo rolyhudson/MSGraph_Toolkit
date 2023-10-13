@@ -70,7 +70,8 @@ namespace BH.Adapter.MSGraph
             using (HttpClient client = new HttpClient() { Timeout = TimeSpan.FromSeconds(Settings.TimeOut) })
             {
                 List<GetRequest> getRequests = requests.Requests.OfType<GetRequest>().ToList();
-                response = Task.WhenAll(getRequests.Select(x => BH.Engine.Adapters.MSGraph.Compute.GetRequestAsync(x, client, Token))).GetAwaiter().GetResult();
+                var tasks = getRequests.Select(x => BH.Engine.Adapters.MSGraph.Compute.GetRequestAsync(x, client, Token));
+                response = Task.WhenAll(tasks).GetAwaiter().GetResult();
                 client.CancelPendingRequests();
                 client.Dispose();
             }
