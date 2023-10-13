@@ -75,7 +75,7 @@ namespace BH.Adapter.MSGraph
         {
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
-            Token = await mainWindow.Authenticate((int)signInMethod - 1);
+            Token = await mainWindow.Authenticate((int)signInMethod);
             if (string.IsNullOrEmpty(Token))
                 //ADD BHoM record error
                 return;
