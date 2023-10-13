@@ -21,4 +21,4 @@ If no token a UWP app is called which depending on the sign in method either get
 
 While this is currently bound to MSGraph_Toolkit the MSGraph_Auth part should be made generic for use by other applications.
 
-A further TODO is make an asynchronous Pull method maybe non- Bhom?
+A further TODO is make an asynchronous Pull method that can query our Compute endpoints. Maybe non-BHoM?
